@@ -1,4 +1,4 @@
-USE [mASter]
+USE [master]
 GO
 
 IF EXISTS(SELECT name FROM sys.databASes WHERE name = 'TesteCollation')
@@ -52,26 +52,26 @@ SET IDENTITY_INSERT dbo.Clientes ON
 
 INSERT INTO Clientes (ClienteID, Nome, DataNAScimento, Endereco, Cidade, Estado, CEP, Sexo)
 VALUES
-  (1,'Ign·cia P. Wheeler','2000-01-31','P.O. Box 565, 4936 Dictum Av.','Curitiba','Santa Catarina','65775-228','feminino'),
-  (2,'Elijah L. Rhodes','1998-07-07','3793 Fusce Rd.','Joinville','Maranh„o','58434-181','feminino'),
-  (3,'Dale A. Petersen','1970-04-10','743-6778 Libero. Ave','BelÈm','S„o Paulo','13359-081','feminino'),
-  (4,'NicholAS K. russo','1988-02-20','P.O. Box 140, 5101 Tortor. Street','Jaboat„o dos Guararapes','Santa Catarina','11084-132','mASculino'),
-  (5,'ZÍlenia N. Christensen','1975-05-07','Ap #495-9170 In Rd.','Timon','Maranh„o','42715-248','feminino'),
+  (1,'Ign√°cia P. Wheeler','2000-01-31','P.O. Box 565, 4936 Dictum Av.','Curitiba','Santa Catarina','65775-228','feminino'),
+  (2,'Elijah L. Rhodes','1998-07-07','3793 Fusce Rd.','Joinville','Maranh√£o','58434-181','feminino'),
+  (3,'Dale A. Petersen','1970-04-10','743-6778 Libero. Ave','Bel√©m','S√£o Paulo','13359-081','feminino'),
+  (4,'NicholAS K. russo','1988-02-20','P.O. Box 140, 5101 Tortor. Street','Jaboat√£o dos Guararapes','Santa Catarina','11084-132','mASculino'),
+  (5,'Z√™lenia N. Christensen','1975-05-07','Ap #495-9170 In Rd.','Timon','Maranh√£o','42715-248','feminino'),
   (6,'Jocelyn F. Clarke','1966-07-06','603-9931 Scelerisque Rd.','Blumenau','Pernambuco','96385-852','feminino'),
-  (7,'Iona H. Beard','1990-08-30','410-125 Semper Road','Ipatinga','ParaÌba','82469-670','feminino'),
-  (8,'Neville Q. Mathis','1991-06-02','520-4542 Est. Road','Caruaru','Paran·','43919-716','feminino'),
-  (9,'Lance A. Rutledge','1993-10-30','1018 Est Av.','GravataÌ','Paran·','89632-232','mASculino'),
-  (10,'Õan M. Maxwell','1982-04-07','Ap #268-4224 Eget, Street','Crato','Rio de Janeiro','89672-987','mASculino'),
-  (11,'Rogan M. Johnston','1989-08-22','497-7692 Ullamcorper Street','An·polis','Rio Grande do Sul','62862-576','mASculino'),
+  (7,'Iona H. Beard','1990-08-30','410-125 Semper Road','Ipatinga','Para√≠ba','82469-670','feminino'),
+  (8,'Neville Q. Mathis','1991-06-02','520-4542 Est. Road','Caruaru','Paran√°','43919-716','feminino'),
+  (9,'Lance A. Rutledge','1993-10-30','1018 Est Av.','Gravata√≠','Paran√°','89632-232','mASculino'),
+  (10,'√çan M. Maxwell','1982-04-07','Ap #268-4224 Eget, Street','Crato','Rio de Janeiro','89672-987','mASculino'),
+  (11,'Rogan M. Johnston','1989-08-22','497-7692 Ullamcorper Street','An√°polis','Rio Grande do Sul','62862-576','mASculino'),
   (12,'Burke E. Christian','1999-07-15','P.O. Box 597, 7067 Et, Road','CAScavel','Rio Grande do Sul','65352-928','mASculino'),
-  (13,'Rahim Q. Johnston','1983-01-03','P.O. Box 770, 1478 Nec St.','Caruaru','S„o Paulo','67277-916','mASculino'),
-  (14,'Quinn N. Byrd','1976-09-07','Ap #598-5590 Id, Ave','Paranagu·','Cear·','25915-723','mASculino'),
-  (15,'Melyssa M. Gonzales','1988-12-15','556-2784 Blandit Road','Duque de CaxiAS','ParaÌba','35727739','feminino'),
-  (16,'Fitzgerald L. Delaney','1976-11-04','346-5507 In, Street','ChapecÛ','Rio de Janeiro','42347-663','feminino'),
-  (17,'Melodie Q. Fischer','1995-12-12','P.O. Box 800, 3536 Primis Rd.','Guarapuava','Par·','76711-731','feminino'),
-  (18,'Alexander I. Mullins','1988-11-28','206-5603 Ipsum Street','BraganÁa','Goi·s','65115-233','mASculino'),
-  (19,'Jorden Y. Peters','1990-02-02','847-2947 Magnis Rd.','Porto Alegre','Goi·s','84470-551','mASculino'),
-  (20,'Porter R. Ochoa','1960-05-17','Ap #541-2042 Urna. Rd.','Maracana˙','Bahia','58542-408','mASculino')
+  (13,'Rahim Q. Johnston','1983-01-03','P.O. Box 770, 1478 Nec St.','Caruaru','S√£o Paulo','67277-916','mASculino'),
+  (14,'Quinn N. Byrd','1976-09-07','Ap #598-5590 Id, Ave','Paranagu√°','Cear√°','25915-723','mASculino'),
+  (15,'Melyssa M. Gonzales','1988-12-15','556-2784 Blandit Road','Duque de CaxiAS','Para√≠ba','35727739','feminino'),
+  (16,'Fitzgerald L. Delaney','1976-11-04','346-5507 In, Street','Chapec√≥','Rio de Janeiro','42347-663','feminino'),
+  (17,'Melodie Q. Fischer','1995-12-12','P.O. Box 800, 3536 Primis Rd.','Guarapuava','Par√°','76711-731','feminino'),
+  (18,'Alexander I. Mullins','1988-11-28','206-5603 Ipsum Street','Bragan√ßa','Goi√°s','65115-233','mASculino'),
+  (19,'Jorden Y. Peters','1990-02-02','847-2947 Magnis Rd.','Porto Alegre','Goi√°s','84470-551','mASculino'),
+  (20,'Porter R. Ochoa','1960-05-17','Ap #541-2042 Urna. Rd.','Maracana√∫','Bahia','58542-408','mASculino')
 
 
 SET IDENTITY_INSERT dbo.Clientes OFF
@@ -82,56 +82,56 @@ SET IDENTITY_INSERT dbo.Pedidos ON
 
 INSERT INTO Pedidos (PedidoID, ClienteID, DataPedido, Valor, Anotacao)
 VALUES
-  (1,4,'2021-08-14 10:02:43','40.29','Isso È uma anotaÁ„o de pedido'),
-  (2,6,'2022-01-16 15:46:22','49.74','Isso È uma anotaÁ„o de pedido'),
-  (3,9,'2021-01-24 15:45:10','1.09','Isso È uma anotaÁ„o de pedido'),
-  (4,11,'2021-03-03 05:30:10','26.62','Isso È uma anotaÁ„o de pedido'),
-  (5,11,'2021-09-05 19:14:57','45.09','Isso È uma anotaÁ„o de pedido'),
-  (6,12,'2021-02-10 22:30:21','37.48','Isso È uma anotaÁ„o de pedido'),
-  (7,10,'2021-04-25 17:46:50','20.04','Isso È uma anotaÁ„o de pedido'),
-  (8,14,'2021-02-15 16:53:41','41.78','Isso È uma anotaÁ„o de pedido'),
-  (9,18,'2021-07-16 20:35:18','21.47','Isso È uma anotaÁ„o de pedido'),
-  (10,10,'2021-01-16 04:07:34','8.69','Isso È uma anotaÁ„o de pedido'),
-  (11,6,'2022-01-31 05:04:45','9.70','Isso È uma anotaÁ„o de pedido'),
-  (12,9,'2021-08-25 14:59:53','15.20','Isso È uma anotaÁ„o de pedido'),
-  (13,18,'2022-01-26 12:34:30','17.66','Isso È uma anotaÁ„o de pedido'),
-  (14,3,'2021-01-05 20:49:14','46.74','Isso È uma anotaÁ„o de pedido'),
-  (15,1,'2021-07-10 08:37:34','14.19','Isso È uma anotaÁ„o de pedido'),
-  (16,6,'2021-01-13 21:47:54','6.75','Isso È uma anotaÁ„o de pedido'),
-  (17,10,'2021-12-27 04:09:49','46.53','Isso È uma anotaÁ„o de pedido'),
-  (18,18,'2021-11-16 00:20:17','16.14','Isso È uma anotaÁ„o de pedido'),
-  (19,1,'2022-03-04 18:53:56','43.80','Isso È uma anotaÁ„o de pedido'),
-  (20,7,'2021-12-19 05:53:41','33.61','Isso È uma anotaÁ„o de pedido'),
-  (21,5,'2021-05-02 22:47:12','39.99','Isso È uma anotaÁ„o de pedido'),
-  (22,8,'2021-05-16 18:57:08','34.44','Isso È uma anotaÁ„o de pedido'),
-  (23,4,'2021-08-25 04:33:59','46.44','Isso È uma anotaÁ„o de pedido'),
-  (24,4,'2022-02-27 17:15:43','35.40','Isso È uma anotaÁ„o de pedido'),
-  (25,4,'2021-10-28 07:35:27','16.82','Isso È uma anotaÁ„o de pedido'),
-  (26,19,'2021-02-20 23:42:10','49.73','Isso È uma anotaÁ„o de pedido'),
-  (27,14,'2021-03-26 20:23:15','37.95','Isso È uma anotaÁ„o de pedido'),
-  (28,14,'2022-02-10 23:56:22','47.13','Isso È uma anotaÁ„o de pedido'),
-  (29,16,'2021-05-14 13:50:30','5.00','Isso È uma anotaÁ„o de pedido'),
-  (30,3,'2021-10-27 14:57:47','10.48','Isso È uma anotaÁ„o de pedido'),
-  (31,8,'2021-08-12 06:58:29','38.20','Isso È uma anotaÁ„o de pedido'),
-  (32,18,'2021-05-20 06:34:03','22.83','Isso È uma anotaÁ„o de pedido'),
-  (33,15,'2021-10-19 17:57:58','33.75','Isso È uma anotaÁ„o de pedido'),
-  (34,12,'2021-02-26 04:21:54','7.86','Isso È uma anotaÁ„o de pedido'),
-  (35,11,'2022-03-01 07:10:13','35.76','Isso È uma anotaÁ„o de pedido'),
-  (36,13,'2021-05-03 08:29:59','35.92','Isso È uma anotaÁ„o de pedido'),
-  (37,15,'2021-11-07 08:04:02','48.69','Isso È uma anotaÁ„o de pedido'),
-  (38,8,'2022-02-18 02:28:36','8.99','Isso È uma anotaÁ„o de pedido'),
-  (39,6,'2021-12-02 19:45:32','8.13','Isso È uma anotaÁ„o de pedido'),
-  (40,8,'2021-09-12 13:04:52','7.36','Isso È uma anotaÁ„o de pedido'),
-  (41,17,'2021-08-20 06:25:36','25.19','Isso È uma anotaÁ„o de pedido'),
-  (42,5,'2021-05-02 02:27:40','43.81','Isso È uma anotaÁ„o de pedido'),
-  (43,12,'2021-08-31 13:15:42','39.94','Isso È uma anotaÁ„o de pedido'),
-  (44,20,'2021-02-08 19:53:40','13.77','Isso È uma anotaÁ„o de pedido'),
-  (45,7,'2021-06-27 21:48:56','25.17','Isso È uma anotaÁ„o de pedido'),
-  (46,18,'2022-02-04 10:26:57','3.75','Isso È uma anotaÁ„o de pedido'),
-  (47,19,'2021-09-26 07:19:06','12.79','Isso È uma anotaÁ„o de pedido'),
-  (48,5,'2021-04-24 14:11:17','11.28','Isso È uma anotaÁ„o de pedido'),
-  (49,4,'2021-01-22 04:23:30','43.97','Isso È uma anotaÁ„o de pedido'),
-  (50,18,'2022-03-15 09:44:00','37.68','Isso È uma anotaÁ„o de pedido')
+  (1,4,'2021-08-14 10:02:43','40.29','Isso √© uma anota√ß√£o de pedido'),
+  (2,6,'2022-01-16 15:46:22','49.74','Isso √© uma anota√ß√£o de pedido'),
+  (3,9,'2021-01-24 15:45:10','1.09','Isso √© uma anota√ß√£o de pedido'),
+  (4,11,'2021-03-03 05:30:10','26.62','Isso √© uma anota√ß√£o de pedido'),
+  (5,11,'2021-09-05 19:14:57','45.09','Isso √© uma anota√ß√£o de pedido'),
+  (6,12,'2021-02-10 22:30:21','37.48','Isso √© uma anota√ß√£o de pedido'),
+  (7,10,'2021-04-25 17:46:50','20.04','Isso √© uma anota√ß√£o de pedido'),
+  (8,14,'2021-02-15 16:53:41','41.78','Isso √© uma anota√ß√£o de pedido'),
+  (9,18,'2021-07-16 20:35:18','21.47','Isso √© uma anota√ß√£o de pedido'),
+  (10,10,'2021-01-16 04:07:34','8.69','Isso √© uma anota√ß√£o de pedido'),
+  (11,6,'2022-01-31 05:04:45','9.70','Isso √© uma anota√ß√£o de pedido'),
+  (12,9,'2021-08-25 14:59:53','15.20','Isso √© uma anota√ß√£o de pedido'),
+  (13,18,'2022-01-26 12:34:30','17.66','Isso √© uma anota√ß√£o de pedido'),
+  (14,3,'2021-01-05 20:49:14','46.74','Isso √© uma anota√ß√£o de pedido'),
+  (15,1,'2021-07-10 08:37:34','14.19','Isso √© uma anota√ß√£o de pedido'),
+  (16,6,'2021-01-13 21:47:54','6.75','Isso √© uma anota√ß√£o de pedido'),
+  (17,10,'2021-12-27 04:09:49','46.53','Isso √© uma anota√ß√£o de pedido'),
+  (18,18,'2021-11-16 00:20:17','16.14','Isso √© uma anota√ß√£o de pedido'),
+  (19,1,'2022-03-04 18:53:56','43.80','Isso √© uma anota√ß√£o de pedido'),
+  (20,7,'2021-12-19 05:53:41','33.61','Isso √© uma anota√ß√£o de pedido'),
+  (21,5,'2021-05-02 22:47:12','39.99','Isso √© uma anota√ß√£o de pedido'),
+  (22,8,'2021-05-16 18:57:08','34.44','Isso √© uma anota√ß√£o de pedido'),
+  (23,4,'2021-08-25 04:33:59','46.44','Isso √© uma anota√ß√£o de pedido'),
+  (24,4,'2022-02-27 17:15:43','35.40','Isso √© uma anota√ß√£o de pedido'),
+  (25,4,'2021-10-28 07:35:27','16.82','Isso √© uma anota√ß√£o de pedido'),
+  (26,19,'2021-02-20 23:42:10','49.73','Isso √© uma anota√ß√£o de pedido'),
+  (27,14,'2021-03-26 20:23:15','37.95','Isso √© uma anota√ß√£o de pedido'),
+  (28,14,'2022-02-10 23:56:22','47.13','Isso √© uma anota√ß√£o de pedido'),
+  (29,16,'2021-05-14 13:50:30','5.00','Isso √© uma anota√ß√£o de pedido'),
+  (30,3,'2021-10-27 14:57:47','10.48','Isso √© uma anota√ß√£o de pedido'),
+  (31,8,'2021-08-12 06:58:29','38.20','Isso √© uma anota√ß√£o de pedido'),
+  (32,18,'2021-05-20 06:34:03','22.83','Isso √© uma anota√ß√£o de pedido'),
+  (33,15,'2021-10-19 17:57:58','33.75','Isso √© uma anota√ß√£o de pedido'),
+  (34,12,'2021-02-26 04:21:54','7.86','Isso √© uma anota√ß√£o de pedido'),
+  (35,11,'2022-03-01 07:10:13','35.76','Isso √© uma anota√ß√£o de pedido'),
+  (36,13,'2021-05-03 08:29:59','35.92','Isso √© uma anota√ß√£o de pedido'),
+  (37,15,'2021-11-07 08:04:02','48.69','Isso √© uma anota√ß√£o de pedido'),
+  (38,8,'2022-02-18 02:28:36','8.99','Isso √© uma anota√ß√£o de pedido'),
+  (39,6,'2021-12-02 19:45:32','8.13','Isso √© uma anota√ß√£o de pedido'),
+  (40,8,'2021-09-12 13:04:52','7.36','Isso √© uma anota√ß√£o de pedido'),
+  (41,17,'2021-08-20 06:25:36','25.19','Isso √© uma anota√ß√£o de pedido'),
+  (42,5,'2021-05-02 02:27:40','43.81','Isso √© uma anota√ß√£o de pedido'),
+  (43,12,'2021-08-31 13:15:42','39.94','Isso √© uma anota√ß√£o de pedido'),
+  (44,20,'2021-02-08 19:53:40','13.77','Isso √© uma anota√ß√£o de pedido'),
+  (45,7,'2021-06-27 21:48:56','25.17','Isso √© uma anota√ß√£o de pedido'),
+  (46,18,'2022-02-04 10:26:57','3.75','Isso √© uma anota√ß√£o de pedido'),
+  (47,19,'2021-09-26 07:19:06','12.79','Isso √© uma anota√ß√£o de pedido'),
+  (48,5,'2021-04-24 14:11:17','11.28','Isso √© uma anota√ß√£o de pedido'),
+  (49,4,'2021-01-22 04:23:30','43.97','Isso √© uma anota√ß√£o de pedido'),
+  (50,18,'2022-03-15 09:44:00','37.68','Isso √© uma anota√ß√£o de pedido')
 
 
 SET IDENTITY_INSERT dbo.Pedidos OFF
@@ -251,13 +251,13 @@ EXEC sp_help Clientes -- Ctrl + F1
 -- ALTERANDO COLLATE DAS COLUNAS
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
--- 1∫ Dropando as contraints CHECK associada a colunas do tipo caractere
+-- 1¬∫ Dropando as contraints CHECK associada a colunas do tipo caractere
 ALTER TABLE [dbo].[Clientes] DROP CONSTRAINT [CK_Sexo]
 
--- 2∫ Dropando os Ìndices associada a colunas do tipo caractere
+-- 2¬∫ Dropando os √≠ndices associada a colunas do tipo caractere
 DROP INDEX [idx_01] ON [dbo].[Clientes]
  
--- 3∫ Alterando a tabela (colunas)
+-- 3¬∫ Alterando a tabela (colunas)
 ALTER TABLE [dbo].[Clientes] ALTER COLUMN [Nome] VARCHAR(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
 ALTER TABLE [dbo].[Clientes] ALTER COLUMN [Endereco] VARCHAR(60) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 ALTER TABLE [dbo].[Clientes] ALTER COLUMN [Cidade] VARCHAR(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
@@ -266,15 +266,15 @@ ALTER TABLE [dbo].[Clientes] ALTER COLUMN [CEP] VARCHAR(15) COLLATE SQL_Latin1_G
 ALTER TABLE [dbo].[Clientes] ALTER COLUMN [Sexo] VARCHAR(15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 ALTER TABLE [dbo].[Pedidos]	 ALTER COLUMN [Anotacao] TEXT COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 
--- 4∫ Recriando as constraints CHECK
+-- 4¬∫ Recriando as constraints CHECK
 ALTER TABLE [dbo].[Clientes] ADD CONSTRAINT [CK_Sexo] CHECK ([Sexo]='masculino' OR [Sexo]='feminino')
 
--- 5∫ Recriando os Ìndices
+-- 5¬∫ Recriando os √≠ndices
 CREATE NONCLUSTERED INDEX idx_01 ON Clientes(Nome) INCLUDE (DataNAScimento, Endereco)
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
--- VALIDANDO ALTERA«AO
+-- VALIDANDO ALTERA√áAO
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 USE TesteCollation

@@ -9,7 +9,7 @@ GO
 CREATE PROCEDURE stp_geraCommandRestore (
 	 @DATABASE VARCHAR(100) = NULL					-- Especifique o nome da database ou NULL para pegar o comando de todas databases
 	,@RETENCAO INT = -24							-- Parametro que fornece o tempo em horas que se deseja criar os comandos de RESTORE EX. ultimas 24 horas
-	,@UNC VARCHAR(100) = 'N' --'\\SERVERNAME_UNC'	-- Especifique o nome do servidor que sera considerado para o diret髍io UNC ou NULL para coletar o valor do @@SERVERNAME, ou N para desconsiderar esse parametro
+	,@UNC VARCHAR(100) = 'N' --'\\SERVERNAME_UNC'	-- Especifique o nome do servidor que sera considerado para o diret贸rio UNC ou NULL para coletar o valor do @@SERVERNAME, ou N para desconsiderar esse parametro
 	,@OPTIMIZATION CHAR(1) = 'Y'					-- Especifique o valor 'Y' para adicionar os parametros de optimization ou 'N' para desconsiderar
 	,@TYPE VARCHAR(10) = NULL						-- Informa os tipos de backups que serao considerados, Ex. 'D' para FULL, 'I' para DIFF, 'L' para LOG ou NULL para considerar todos
 ) AS 
@@ -25,8 +25,8 @@ BEGIN
 		,backup_start_date
 		,backup_finish_date
 		,CASE 
-			WHEN s.type IN ('D','I') THEN 'RESTORE DATABASE ' + QUOTENAME(s.database_name) + ' FROM DISK = N' + '''' + CASE ISNULL(@UNC, '') WHEN '' THEN '\\' + CONVERT(VARCHAR(100), @@SERVERNAME) + '\' + REPLACE(m.physical_device_name,':','$') WHEN 'N' THEN m.physical_device_name ELSE @UNC + '\' + REPLACE(m.physical_device_name,':','$') END + '''' + ' WITH NORECOVERY, STATS = 10' + CASE ISNULL(@OPTIMIZATION, 'N') WHEN 'N' THEN '' ELSE ', MAXTRANSFERSIZE = 2097152, BUFFERCOUNT = 50, BLOCKSIZE = 8192' END + ';'
-			ELSE 'RESTORE LOG ' + QUOTENAME(s.database_name) + ' FROM  DISK = N''' + CASE ISNULL(@UNC, '') WHEN '' THEN '\\' + CONVERT(VARCHAR(100), @@SERVERNAME) + '\' + REPLACE(m.physical_device_name,':','$') WHEN 'N' THEN m.physical_device_name ELSE @UNC + '\' + REPLACE(m.physical_device_name,':','$') END + ''' WITH NORECOVERY, STATS = 10' + CASE ISNULL(@OPTIMIZATION, 'N') WHEN 'N' THEN '' ELSE ', MAXTRANSFERSIZE = 2097152, BUFFERCOUNT = 50, BLOCKSIZE = 8192' END + ';'
+			WHEN s.type IN ('D','I') THEN 'RESTORE DATABASE ' + QUOTENAME(s.database_name) + ' FROM DISK = N' + '''' + CASE ISNULL(@UNC, '') WHEN '' THEN '\\' + SUBSTRING(@@SERVERNAME, 1 , CHARINDEX('\', @@SERVERNAME) - 1) + '\' + REPLACE(m.physical_device_name,':','$') WHEN 'N' THEN m.physical_device_name ELSE @UNC + '\' + REPLACE(m.physical_device_name,':','$') END + '''' + ' WITH NORECOVERY, STATS = 10' + CASE ISNULL(@OPTIMIZATION, 'N') WHEN 'N' THEN '' ELSE ', MAXTRANSFERSIZE = 2097152, BUFFERCOUNT = 50, BLOCKSIZE = 8192' END + ';'
+			ELSE 'RESTORE LOG ' + QUOTENAME(s.database_name) + ' FROM  DISK = N''' + CASE ISNULL(@UNC, '') WHEN '' THEN '\\' + SUBSTRING(@@SERVERNAME, 1 , CHARINDEX('\', @@SERVERNAME) - 1) + '\' + REPLACE(m.physical_device_name,':','$') WHEN 'N' THEN m.physical_device_name ELSE @UNC + '\' + REPLACE(m.physical_device_name,':','$') END + ''' WITH NORECOVERY, STATS = 10' + CASE ISNULL(@OPTIMIZATION, 'N') WHEN 'N' THEN '' ELSE ', MAXTRANSFERSIZE = 2097152, BUFFERCOUNT = 50, BLOCKSIZE = 8192' END + ';'
 		 END AS CommandRestore
 	FROM msdb.dbo.backupset AS s
 	INNER JOIN msdb.dbo.backupmediafamily AS m ON s.media_set_id = m.media_set_id
@@ -69,20 +69,20 @@ EXEC stp_geraCommandRestore
 
 GO
 
---Gerar comandos de RESTORE de todos os backups de diret髍io UNC padrao com otimizacao somente da database [Northwind] nas ultimas 2 horas
+--Gerar comandos de RESTORE de todos os backups de diret贸rio UNC padrao com otimizacao somente da database [Northwind] nas ultimas 2 horas
 EXEC stp_geraCommandRestore 
 	 @DATABASE = 'Northwind'
 	,@RETENCAO = -2
-	,@UNC = NULL					-- Especifique o nome do servidor que sera considerado para o diret髍io UNC ou NULL para coletar o valor do @@SERVERNAME, ou N para desconsiderar esse parametro
+	,@UNC = NULL					-- Especifique o nome do servidor que sera considerado para o diret贸rio UNC ou NULL para coletar o valor do @@SERVERNAME, ou N para desconsiderar esse parametro
 	,@OPTIMIZATION = 'Y'
 	,@TYPE = NULL
 
 GO
 
---Gerar comandos de RESTORE de todos os backups de diret髍io UNC especifico com otimizacao somente da database [Northwind] nas ultimas 2 horas
+--Gerar comandos de RESTORE de todos os backups de diret贸rio UNC especifico com otimizacao somente da database [Northwind] nas ultimas 2 horas
 EXEC stp_geraCommandRestore 
 	 @DATABASE = 'Northwind'
 	,@RETENCAO = -2
-	,@UNC = '\\SERVERNAME_UNC'			-- Especifique o nome do servidor que sera considerado para o diret髍io UNC ou NULL para coletar o valor do @@SERVERNAME, ou N para desconsiderar esse parametro
+	,@UNC = '\\SERVERNAME_UNC'		-- Especifique o nome do servidor que sera considerado para o diret贸rio UNC ou NULL para coletar o valor do @@SERVERNAME, ou N para desconsiderar esse parametro
 	,@OPTIMIZATION = 'Y'
 	,@TYPE = NULL

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "defaultValue": "sqlserverssddb001",
+      "type": "string",
+      "allowedValues": [
+        "sqlserverssddb001",
+        "sqlserverssddb002",
+        "sqlserverssddb003",
+        "sqlserverssddb004",
+        "sqlserverdeployhandson"
+        ,"sqlserveradssdpk001"
+        ,"sqlserveradssdpk002"
+      ]
+    },
+    "sqldatabaseName": {
+      "defaultValue": "sqldbpsdeployhandson",
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 50,
+      "metadata": {
+        "description": "Database Name"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "databaseCollation": "SQL_Latin1_General_CP1_CI_AS"
+  },
+  "resources": [
+    {
+      "name": "[parameters('sqlServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2020-02-02-preview",
+      "location": "[parameters('location')]",
+      "tags": {
+        "displayName": "SqlServer"
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Sql/servers/databases",
+          "apiVersion": "2022-05-01-preview",
+          "name": "[format('{0}/{1}', parameters('sqlServerName'), parameters('sqldatabaseName'))]",
+          "location": "[parameters('location')]",
+          "tags": {
+            "hands-on": "deploy"
+          },
+          "sku": {
+            "name": "GP_S_Gen5",
+            "tier": "GeneralPurpose",
+            "family": "Gen5",
+            "capacity": 1
+          },
+          "kind": "v12.0,user,vcore,serverless",
+          "properties": {
+            "collation": "[variables('databaseCollation')]",
+            "maxSizeBytes": 1073741824,
+            "requestedBackupStorageRedundancy": "Local"
+          },
+          "dependsOn": [
+            "[parameters('sqlServerName')]"
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "sqlServerFqdn": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Sql/servers/', parameters('sqlServerName'))).fullyQualifiedDomainName]"
+    },
+    "databaseName": {
+      "type": "string",
+      "value": "[parameters('sqldatabaseName')]"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the diagnostic setting."
+      }
+    },
+    "serverName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Azure SQL database server."
+      }
+    },
+    
+    "dbName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the SQL database."
+      }
+    },
+    "workspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id of the workspace."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "apiVersion": "2021-05-01-preview",
+      "scope": "[format('Microsoft.Sql/servers/{0}/databases/{1}', parameters('serverName'), parameters('dbName'))]",
+      "name": "[parameters('settingName')]",
+      "properties": {
+        "workspaceId": "[parameters('workspaceId')]",
+        "logs": [
+          {
+            "category": "SQLInsights",
+            "enabled": true
+          },
+          {
+            "category": "AutomaticTuning",
+            "enabled": true
+          },
+          {
+            "category": "QueryStoreRuntimeStatistics",
+            "enabled": true
+          },
+          {
+            "category": "QueryStoreWaitStatistics",
+            "enabled": true
+          },
+          {
+            "category": "Errors",
+            "enabled": true
+          },
+          {
+            "category": "DatabaseWaitStatistics",
+            "enabled": true
+          },
+          {
+            "category": "Timeouts",
+            "enabled": true
+          },
+          {
+            "category": "Blocks",
+            "enabled": true
+          },
+          {
+            "category": "Deadlocks",
+            "enabled": true
+          }
+        ],
+        "metrics": [
+          {
+            "category": "Basic",
+            "enabled": true
+          },
+          {
+            "category": "InstanceAndAppAdvanced",
+            "enabled": true
+          },
+          {
+            "category": "WorkloadManagement",
+            "enabled": true
+          }
+        ]
+      }
+    }
+  ]
+}
